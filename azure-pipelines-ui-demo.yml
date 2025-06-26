@@ -1,0 +1,13 @@
+resources:
+  repositories:
+    - repository: owaspzapui
+      type: github
+      endpoint: UKHO
+      name: UKHO/owasp-zap-scan
+      ref: refs/heads/master
+
+jobs:
+- template: owasp-zap-ui-scan-template.yml@owaspzapui
+  parameters:
+    url: $(ApplicationUrl)
+    publishAsTestResults: variables.PublishTestResults
